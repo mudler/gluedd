@@ -18,4 +18,5 @@ package api
 type Detector interface {
 	WithService(service string) Detector
 	Detect(photo string) Prediction
+	DetectService(photo, service string) Prediction
 }

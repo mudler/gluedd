@@ -36,6 +36,10 @@ func (e *DummyErrand) Apply() error {
 	return nil
 }
 
+func (e *DummyErrand) Generate(api.Detector) *api.Prediction {
+	return nil
+}
+
 type DummyGenerator struct{}
 type DeepDetect struct{ s string }
 
@@ -67,6 +71,10 @@ func NewDeepDetect(server string) api.Detector {
 }
 
 func (d *DeepDetect) Detect(photo string) api.Prediction {
+	return api.Prediction{Error: errors.New(d.s)}
+}
+
+func (d *DeepDetect) DetectService(photo, s string) api.Prediction {
 	return api.Prediction{Error: errors.New(d.s)}
 }
 

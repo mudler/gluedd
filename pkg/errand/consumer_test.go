@@ -16,7 +16,9 @@
 package errand_test
 
 import (
+	"github.com/mudler/gluedd/pkg/api"
 	. "github.com/mudler/gluedd/pkg/errand"
+
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
 	"time"
@@ -28,6 +30,10 @@ type DummyErrand struct {
 
 func (e *DummyErrand) Apply() error {
 	e.F = "fired"
+	return nil
+}
+
+func (e *DummyErrand) Generate(api.Detector) *api.Prediction {
 	return nil
 }
 

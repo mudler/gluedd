@@ -20,6 +20,7 @@ import "github.com/mudler/gluedd/pkg/api"
 // Errand is the thing to do when the prediction happened
 type Errand interface {
 	Apply() error
+	Generate(api.Detector) *api.Prediction
 }
 
 type ErrandGenerator interface {

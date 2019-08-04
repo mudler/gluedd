@@ -27,17 +27,12 @@ type DeepDetect struct {
 func NewDeepDetect(server string) Detector {
 	return &DeepDetect{Server: server}
 }
-
-func (d *DeepDetect) Detect(photo string) Prediction {
+func (d *DeepDetect) DetectService(photo, service string) Prediction {
 
 	// Create predict structure for request parameters
 	var predict godd.PredictRequest
 
-	if len(d.service) > 0 {
-		predict.Service = d.service
-	} else {
-		predict.Service = "detection_600"
-	}
+	predict.Service = service
 
 	predict.Data = append(predict.Data, photo)
 	predict.Parameters.Output.Bbox = true
@@ -48,7 +43,16 @@ func (d *DeepDetect) Detect(photo string) Prediction {
 		return Prediction{Error: err}
 	}
 
-	return Prediction{PredictResult: predictResult}
+	return Prediction{PredictResult: predictResult, Url: photo}
+}
+
+func (d *DeepDetect) Detect(photo string) Prediction {
+
+	service := "detection_600"
+	if len(d.service) > 0 {
+		service = d.service
+	}
+	return d.DetectService(photo, service)
 }
 
 func (d *DeepDetect) WithService(s string) Detector {

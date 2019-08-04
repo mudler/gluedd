@@ -25,6 +25,7 @@ import (
 type Prediction struct {
 	godd.PredictResult
 	Error error
+	Url   string
 }
 
 func (p Prediction) Explain() {

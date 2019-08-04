@@ -36,7 +36,13 @@ func (p *DefaultPredictor) Generate() chan errand.Errand {
 	predictions := p.Predict()
 	go func() {
 		for pre := range predictions {
-			jobs <- p.Generator.GenerateErrand(pre)
+
+			errand := p.Generator.GenerateErrand(pre)
+			extraPrediction := errand.Generate(p.API)
+			if extraPrediction != nil {
+				jobs <- p.Generator.GenerateErrand(*extraPrediction)
+			}
+			jobs <- errand
 		}
 	}()
 

@@ -30,3 +30,8 @@ func (e *DefaultErrand) Apply() error {
 	e.Prediction.Explain()
 	return nil
 }
+
+// Generate makes the errand generates new prediction if needed
+func (e *DefaultErrand) Generate(api.Detector) *api.Prediction {
+	return nil
+}
