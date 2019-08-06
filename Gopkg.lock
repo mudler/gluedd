@@ -3,6 +3,25 @@
 
 [[projects]]
   branch = "master"
+  digest = "1:64bbd8fbd3d908aba522ac46b066786a2805ab21db081c5d9d892f470cc83ac1"
+  name = "github.com/CorentinB/gobbox"
+  packages = ["."]
+  pruneopts = "UT"
+  revision = "ea6d89695a092b307e8492728a287b7ecf324bc5"
+
+[[projects]]
+  branch = "master"
+  digest = "1:62c57507df491b657e9ae2645f30958d9964c8eeb380600469eedc951ebb3a0e"
+  name = "github.com/golang/freetype"
+  packages = [
+    "raster",
+    "truetype",
+  ]
+  pruneopts = "UT"
+  revision = "e2365dfdc4a05e4b8299a783240d4a7d5a65d4e4"
+
+[[projects]]
+  branch = "master"
   digest = "1:59392ed8afb901aab4287d4894df8191722e34f3957716f4350c8c133ce99046"
   name = "github.com/hpcloud/tail"
   packages = [
@@ -72,12 +91,35 @@
   version = "v1.5.0"
 
 [[projects]]
+  digest = "1:20f3e88dfdcc562aefa9bf062259293a32c3edf26325c6f3ccf5d0279d5c1558"
+  name = "github.com/pixiv/go-libjpeg"
+  packages = [
+    "jpeg",
+    "rgb",
+  ]
+  pruneopts = "UT"
+  revision = "c49be700eba7cab5904c763ae8f0a0e2c5786c35"
+  version = "v0.2"
+
+[[projects]]
   digest = "1:cf31692c14422fa27c83a05292eb5cbe0fb2775972e8f1f8446a71549bd8980b"
   name = "github.com/pkg/errors"
   packages = ["."]
   pruneopts = "UT"
   revision = "ba968bfe8b2f7e042a574c888954fccecfa385b4"
   version = "v0.8.1"
+
+[[projects]]
+  branch = "master"
+  digest = "1:63f792ac02aa817a97a6325a0fbed48248513112e019aadfcdc156282b140e40"
+  name = "golang.org/x/image"
+  packages = [
+    "font",
+    "font/gofont/gomono",
+    "math/fixed",
+  ]
+  pruneopts = "UT"
+  revision = "cff245a6509b8c4de022d0d5b9037c503c5989d6"
 
 [[projects]]
   branch = "master"
@@ -154,9 +196,11 @@
   analyzer-name = "dep"
   analyzer-version = 1
   input-imports = [
+    "github.com/CorentinB/gobbox",
     "github.com/jolibrain/godd",
     "github.com/onsi/ginkgo",
     "github.com/onsi/gomega",
+    "github.com/pixiv/go-libjpeg/jpeg",
     "github.com/pkg/errors",
   ]
   solver-name = "gps-cdcl"
