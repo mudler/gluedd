@@ -78,6 +78,10 @@ func (d *DeepDetect) DetectService(photo, s string) api.Prediction {
 	return api.Prediction{Error: errors.New(d.s)}
 }
 
+func (d *DeepDetect) CreateService(URL string, arguments api.ServiceOptions) error {
+	return nil
+}
+
 func (d *DeepDetect) WithService(s string) api.Detector {
 	return d
 }

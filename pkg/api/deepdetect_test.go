@@ -24,7 +24,7 @@ import (
 var _ = Describe("API", func() {
 	Context("DeepDetect", func() {
 		It("Sets the service correctly", func() {
-			dd := NewDeepDetect("test")
+			dd := NewDeepDetect("test", nil)
 			Expect(dd.WithService("test")).To(Equal(dd))
 			Expect(dd.Detect("boo").Error).To(Not(Succeed()))
 		})
